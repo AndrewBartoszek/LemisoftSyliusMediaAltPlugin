@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Lemisoft\SyliusMediaAltPlugin
+        psr4_prefix: Lemisoft\SyliusMediaAltPlugin
