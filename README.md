@@ -17,6 +17,47 @@ Dla php należy włączyć następujące rozszerzenia:
 5. Najlepiej używać plików konfiguracyjnych w formacie **.php**
 6. Publikacja wtyczki oraz używanie semantic version
 
+## Instalacja pluginu
+- W pliku z encja ProductImage użyć trait-a ProductImageTrait i interface PluginAltImageInterface:
+   ```bash
+    use Doctrine\ORM\Mapping as ORM;
+    use Lemisoft\SyliusMediaAltPlugin\Entity\PluginAltImageInterface;
+    use Lemisoft\SyliusMediaAltPlugin\Entity\Product\ProductImageTrait;
+    use Sylius\Component\Core\Model\ProductImage as BaseProductImage;
+
+    #[ORM\Entity()]
+    #[ORM\Table(name:"sylius_product_image")]
+    class ProductImage extends BaseProductImage implements PluginAltImageInterface
+    {
+        use ProductImageTrait;
+    }
+   ```
+
+- W pliku z encja TaxonImage użyć trait-a TaxonImageTrait i interface PluginAltImageInterface:
+   ```bash
+    use Doctrine\ORM\Mapping as ORM;
+    use Lemisoft\SyliusMediaAltPlugin\Entity\PluginAltImageInterface;
+    use Lemisoft\SyliusMediaAltPlugin\Entity\Taxonomy\TaxonImageTrait;
+    use Sylius\Component\Core\Model\TaxonImage as BaseTaxonImage;
+
+    #[ORM\Entity()]
+    #[ORM\Table(name:"sylius_taxon_image")]
+    class TaxonImage extends BaseTaxonImage implements PluginAltImageInterface
+    {
+        use TaxonImageTrait;
+    }
+   ```
+
+- Wygenerować migracje:
+   ```bash
+    php bin/console doctrine:migrations:diff
+   ```
+
+- Wykonać migracje:
+   ```bash
+    php bin/console doctrine:migrations:migrate
+   ```
+
 ## Uruchomienie wtyczki
 
 Wtyczka uruchamiana jest przy użyciu Docker.

@@ -1,9 +1,0 @@
-lemisoft_sylius_media_alt_plugin_shop:
-    resource: "@LemisoftSyliusMediaAltPlugin/config/shop_routing.yml"
-    prefix: /{_locale}
-    requirements:
-        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
-
-lemisoft_sylius_media_alt_plugin_admin:
-    resource: "@LemisoftSyliusMediaAltPlugin/config/admin_routing.yml"
-    prefix: /admin
