@@ -18,6 +18,17 @@ Dla php należy włączyć następujące rozszerzenia:
 6. Publikacja wtyczki oraz używanie semantic version
 
 ## Instalacja pluginu
+- Dodać w pliku composer.json sklepu:
+   ```bash
+    "lemisoft-sylius-media-alt-plugin" : {
+        "type": "vcs",
+        "url": "git@gitlab.lemisoft.pl:e-commerce/plugins/lemisoft-sylius-media-alt-plugin.git"
+    }
+   ```
+- Pobrać plugin
+   ```bash
+    composer require "lemisoft/sylius-media-alt-plugin": 0.0.1
+   ```
 - W pliku z encja ProductImage użyć trait-a ProductImageTrait i interface PluginAltImageInterface:
    ```bash
     use Doctrine\ORM\Mapping as ORM;
